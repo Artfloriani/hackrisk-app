@@ -490,14 +490,30 @@
     ".git\\objects\\ec\\9f771e2b691e42c05ab4f521c1107864fb4d28",
     ".git\\objects\\0a\\29d4b1ab665c67328bcf7e4bcf27620fb60c48",
     ".git\\objects\\6e\\d98ee6738f3beb8647724bd3c08cfdbb0937ae",
-    "config.xml"
+    "config.xml",
+    ".git\\objects\\2c\\8dfcc75bd6f2b8014ad129b7e9fcef2b13060a",
+    ".git\\objects\\55\\441ea3fe87347f9f8ca189e829a85e66d20a9f",
+    ".git\\objects\\88\\5d68d3c4639c2b8d1ebdbc3fbc771253e5b36f",
+    ".git\\objects\\3f\\c8b52672f967f11a7c98f8095a1e0c9db1b55b",
+    ".git\\objects\\ce\\6bd2e27389f2f1bd30795e5febe18a95b5c9be",
+    ".git\\objects\\2d\\473d03e8716298fc55556b00c9b3aaafd990dc",
+    ".git\\objects\\36\\b37b58e307df5597374f261416fe2488ff1834",
+    ".git\\objects\\19\\4fc85ad1c290590916292b630fb42056512ca5",
+    "www\\img\\bannerGlucose.jpg"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
     "plugins\\android.json",
-    "www\\js\\controllers.js"
+    "www\\js\\app.js",
+    "www\\templates\\dash.html",
+    "www\\css\\style.css",
+    "www\\templates\\exams.html",
+    "www\\js\\controllers.js",
+    "www\\img\\bannerGlucose.jpg",
+    ".git\\ms-persist.xml",
+    "www\\index.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

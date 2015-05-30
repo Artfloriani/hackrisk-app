@@ -11,7 +11,10 @@
                 {{drug.drugName}} - {{drug.dose}} {{drug.doseUnit}}
             </div>
         </div>
-        <div class="barButton textBackground">
+        <div class="barButton textBackground" ng-if="takenDose">
+            {{drug.hours}}h
+        </div>
+        <div class="barButton pillBackground" ng-if="!takenDose">
             {{drug.hours}}h
         </div>
         <div class="contentDescription">

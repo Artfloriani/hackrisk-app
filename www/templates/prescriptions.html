@@ -10,7 +10,7 @@
       
     <ion-list>
 
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="drug in prescription" type="item-text-wrap" href="#/tab/prescription/{{drug.idPrescription}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="drug in prescription | orderBy:'hours'" type="item-text-wrap" href="#/tab/prescription/{{drug.idPrescription}}">
         <img ng-src="{{drug.face}}">
         <h2>{{drug.drugName}}</h2>
         <p>{{drug.nextDose}}</p>

@@ -16,11 +16,6 @@ angular.module('starter.controllers', [])
 
     var flag = true;
 
-  
-
-  
-
-  
 
   $scope.process = function () {
 
@@ -63,6 +58,7 @@ angular.module('starter.controllers', [])
                   }
               }
 
+              /*
               function compare(a, b) {
                   if (a.nextDose < b.nextDose)
                       return -1;
@@ -78,7 +74,7 @@ angular.module('starter.controllers', [])
 
               $scope.prescription = {};
 
-              $scope.prescription = temp;
+              $scope.prescription = temp;*/
 
 
 
@@ -222,16 +218,35 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 })
-.controller('ExamsCtrl', function ($scope, claraAPI) {
 
+
+.controller('ExamsCtrl', function ($scope, claraAPI, $timeout, $state) {
+
+    $scope.placeHolder = 'Glucose (mg/dl)';
+    $scope.showLoading = false;
+    $scope.submited = false;
     $scope.saveGlucose = function (value) {
+
         if (!isNaN(value) && value > 0 && value < 1000)
         {
+            $scope.showLoading = true;
             claraAPI.postExam(value).success(function (data) {
-                
+                $scope.submited = true;
+                $scope.showLoading = false;
+                $scope.placeHolder = 'Glucose (mg/dl)';
+
+                $timeout(function () {
+                    $scope.submited = false;
+                }, 60000);
             });
         }
-     
+    }
+
+    $scope.goToDash = function () {
+        $state.go('tab.dash');
 
     }
+    
+
+    
 });

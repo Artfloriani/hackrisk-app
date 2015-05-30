@@ -1,11 +1,19 @@
-﻿<ion-view view-title="Exams">
+﻿<ion-view view-title="Exams" hide-nav-bar="true">
     <ion-content>
-        <div class="filler">
-            <div class="textDescription">
-                Glucose Levels
+        <div class="bannerOverlay">
+            <div class="pogBack item-input" ng-click="goToDash()"> <i class="icon ion-ios-arrow-back bigger"></i> <span class="paddingUP"> Dash</span></div>
+            <div class="imageBanner">
+                <div class="textDescription">
+                    Glucose Levels
+                </div>
             </div>
         </div>
         <div class="barButton bloodBackground">
+        </div>
+        <div id ="loadingExam" class="load-bar" ng-if="showLoading">
+            <div class="loading"></div>
+            <div class="loading"></div>
+            <div class="loading"></div>
         </div>
 
 
@@ -13,14 +21,17 @@
             <div class="col col-75">
                 <label class="item item-input">
                     <i class="icon ion-waterdrop placeholder-icon"></i>
-                    <input type="number" ng-model="glucoseValue" placeholder="Glucose (mg/dl)">
+                    <input type="number" data-ng-model="glucoseValue" placeholder="{{placeHolder}}">
                 </label>
 
                 </div>
                 <div id="buttonGlucose" class="col col-25">
-                    <button class="btn white" ng-click="saveGlucose(glucoseValue)">
+                    <button class="btn white" ng-click="saveGlucose(glucoseValue);" ng-if="!submited">
                         <span class="pinkAccent">Save</span>
                     </button>
+                    <div class="checkIcon" ng-if="submited">
+                        <i class="icon ion-checkmark" ></i>
+                    </div>
                 </div>
 
             </div>
