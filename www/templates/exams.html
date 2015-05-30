@@ -1,0 +1,84 @@
+﻿<ion-view view-title="Exams">
+    <ion-content>
+        <div class="filler">
+            <div class="textDescription">
+                Glucose Levels
+            </div>
+        </div>
+        <div class="barButton bloodBackground">
+        </div>
+
+
+        <div class="row padding">
+            <div class="col col-75">
+                <label class="item item-input">
+                    <i class="icon ion-waterdrop placeholder-icon"></i>
+                    <input type="number" ng-model="glucoseValue" placeholder="Glucose (mg/dl)">
+                </label>
+
+                </div>
+                <div id="buttonGlucose" class="col col-25">
+                    <button class="btn white" ng-click="saveGlucose(glucoseValue)">
+                        <span class="pinkAccent">Save</span>
+                    </button>
+                </div>
+
+            </div>
+        
+
+        <div class="contentDescription">
+            
+
+                <div class="smallBox">
+                    <div class="smallBox">
+                        <span class="descriptionHeader">
+                            1.
+                        </span>
+                        <span class="descriptionText">
+                            Wash and dry your hands well.
+                        </span>
+                    </div>
+                    <div class="smallBox">
+                        <span class="descriptionHeader">
+                            2.
+                        </span>
+                        <span class="descriptionText">
+                            Insert a test strip into your meter.
+                        </span>
+                    </div>
+                    <div class="smallBox">
+                        <span class="descriptionHeader">
+                            3.
+                        </span>
+                        <span class="descriptionText">
+                            Prick the side of your fingertip with the needle (lancet) provided with your test kit.
+                        </span>
+                    </div>
+                    <div class="smallBox">
+                        <span class="descriptionHeader">
+                            4.
+                        </span>
+                        <span class="descriptionText">
+                            Gently squeeze or massage your finger until a drop of blood forms.
+                        </span>
+                    </div>
+                    <div class="smallBox">
+                        <span class="descriptionHeader">
+                            5.
+                        </span>
+                        <span class="descriptionText">
+                            Touch and hold the edge of the test strip to the drop of blood.
+                        </span>
+                    </div>
+                    <div class="smallBox">
+                        <span class="descriptionHeader">
+                            6.
+                        </span>
+                        <span class="descriptionText">
+                            The meter will display your blood glucose level on a screen after a few seconds.
+                        </span>
+                    </div>
+                </div>
+            </div>
+</ion-content>
+</ion-view>

@@ -1,0 +1,67 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="My Prescriptions">
+    <ion-content>
+        <div class="filler">
+            <div class="textDescription">
+                {{drug.drugName}} - {{drug.dose}} {{drug.doseUnit}}
+            </div>
+        </div>
+        <div class="barButton textBackground">
+            {{drug.hours}}h
+        </div>
+        <div class="contentDescription">
+            <div class="smallBox">
+                <div class="descriptionHeader">
+                    PRESCRIBED
+                </div>
+
+                <div class="descriptionText">
+                    {{drug.date}}
+                </div>
+            </div>
+            <div class="smallBox">
+                <div class="descriptionHeader">
+                    REASON
+                </div>
+                <div class="descriptionText">
+                    {{drug.reason}}
+                </div>
+            </div>
+            <div class="smallBox">
+                <div class="descriptionHeader">
+                    POSOLOGY
+                </div>
+                <div class="descriptionText">
+                    {{drug.frequency}} times a day
+                </div>
+            </div>
+
+            <div class="smallBox">
+                <div class="descriptionHeader">
+                    FIRST DOSE
+                </div>
+                <div class="descriptionText">
+                    {{drug.startText}}
+                </div>
+            </div>
+
+            <div class="smallBox" ng-if="takenDose">
+                <div class="descriptionHeader">
+                    NEXT DOSE
+                </div>
+                <div class="descriptionText">
+                    {{drug.nextDose}}
+                </div>
+            </div>
+
+            <div class="center" ng-if="!takenDose">
+                <button class="btn pink" type="button" ng-click="recordDose()"><span>Record first dose</span></button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,21 @@
+<ion-view>
+  <ion-content>
+      <div class="filler">
+          <div class="textDescription">
+              My Prescriptions
+          </div>
+      </div>
+      <div class="barButton pillBackground">
+      </div>
+      
+    <ion-list>
+
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="drug in prescription" type="item-text-wrap" href="#/tab/prescription/{{drug.idPrescription}}">
+        <img ng-src="{{drug.face}}">
+        <h2>{{drug.drugName}}</h2>
+        <p>{{drug.nextDose}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
