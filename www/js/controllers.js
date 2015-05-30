@@ -12,30 +12,30 @@ angular.module('starter.controllers', [])
 
 .controller('ChatsCtrl', function($scope, Drugs, claraAPI, $timeout) {
     
+    $scope.prescription = {};
 
+    var flag = true;
 
-  $scope.$on('$stateChangeSuccess', function (event, toState) {
-      claraAPI.getPrescriptions().success(function (data) {
-          window.localStorage.setItem('dataPrescriptions', JSON.stringify(data));
-          Drugs.update();
-      });
-  });
+  
 
-  $scope.prescription = [];
+  
+
+  
 
   $scope.process = function () {
 
+      
+
+      
       claraAPI.getPrescriptions().success(function (data) {
           window.localStorage.setItem('dataPrescriptions', JSON.stringify(data));
 
-
           Drugs.update();
 
-          var temp = Drugs.all();
-
-          if (temp.length != $scope.prescription.length){
-              $scope.prescription = temp;
-              
+                
+          if ($scope.prescription.length != data.length || flag) {
+              flag = false;
+              $scope.prescription = Drugs.all();
 
 
               var today = new Date();
@@ -71,11 +71,16 @@ angular.module('starter.controllers', [])
                   return 0;
               }
 
+
               var temp = $scope.prescription;
 
               temp.sort(function (a, b) { return parseFloat(a.hours) - parseFloat(b.hours) });
 
+              $scope.prescription = {};
+
               $scope.prescription = temp;
+
+
 
               for (var i = 0; i < $scope.prescription.length; i++) {
                   if ($scope.prescription[i].start == null) {
@@ -83,14 +88,32 @@ angular.module('starter.controllers', [])
                   } else {
                       $scope.prescription[i].nextDose = 'Next dose in ' + $scope.prescription[i].hours + ' hours and ' + $scope.prescription[i].minutes + ' minutes';
                   }
-
               }
           }
-         });
+
+      });
+
       
-  
-  $timeout(function () { $scope.process(); }, 1000);
+
+
+    
+      $timeout(function () {
+                             
+          $scope.process();
+      }, 2000);
   }
+
+  $scope.$on('$stateChangeSuccess', function (event, toState) {
+      claraAPI.getPrescriptions().success(function (data) {
+          window.localStorage.setItem('dataPrescriptions', JSON.stringify(data));
+          Drugs.update();
+          flag = true;
+          $scope.process();
+          
+
+      });
+  });
+
 
   $scope.process();
 

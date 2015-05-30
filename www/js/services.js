@@ -42,12 +42,12 @@ angular.module('starter.services', [])
   ];*/
 
     var icons = new Array('img/parecetamol.jpg', 'img/ibuprofen.jpg', 'img/b12.jpg', 'img/b12.jpg', 'img/ibuprofen.jpg', 'img/parecetamol.jpg');
-    console.log(icons);
 
     var drugs = JSON.parse(window.localStorage.getItem('dataPrescriptions'));
 
   return {
       all: function () {
+          
           for (var i = 0; i < drugs.length; i++) 
                   drugs[i].face = icons[i];
         return drugs;
@@ -64,8 +64,7 @@ angular.module('starter.services', [])
       }
       return null;
     },
-    update: function () {
-        drugas = [];
+    update: function () {    
         drugs = JSON.parse(window.localStorage.getItem('dataPrescriptions'));
         return null;
     }
