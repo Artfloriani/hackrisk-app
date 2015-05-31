@@ -4,11 +4,15 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="My Prescriptions">
+<ion-view view-title="My Prescriptions" hide-nav-bar="true">
     <ion-content>
-        <div class="filler">
-            <div class="textDescription">
-                {{drug.drugName}} - {{drug.dose}} {{drug.doseUnit}}
+
+        <div class="bannerOverlay">
+            <div class="pogBack item-input" ng-click="goToDash()"> <i class="icon ion-ios-arrow-back bigger"></i> <span class="paddingUP">Back</span></div>
+            <div class="imageBanner pillsBanner">
+                <div class="textDescription">
+                    {{drug.drugName}} - {{drug.dose}} {{drug.doseUnit}}
+                </div>
             </div>
         </div>
         <div class="barButton textBackground" ng-if="takenDose">
@@ -19,19 +23,19 @@
         <div class="contentDescription">
             <div class="smallBox">
                 <div class="descriptionHeader">
+                    DESCRIPTION
+                </div>
+                <div class="descriptionText">
+                    {{drug.reason}}
+                </div>
+            </div>
+            <div class="smallBox">
+                <div class="descriptionHeader">
                     PRESCRIBED
                 </div>
 
                 <div class="descriptionText">
                     {{drug.date}}
-                </div>
-            </div>
-            <div class="smallBox">
-                <div class="descriptionHeader">
-                    REASON
-                </div>
-                <div class="descriptionText">
-                    {{drug.reason}}
                 </div>
             </div>
             <div class="smallBox">

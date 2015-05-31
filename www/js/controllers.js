@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function ($scope, $state) {
+.controller('DashCtrl', function ($scope, $state, $timeout) {
     $scope.prescription = function () {
         $state.go('tab.prescription');
     }
@@ -8,13 +8,45 @@ angular.module('starter.controllers', [])
     $scope.exams = function () {
         $state.go('tab.exams');
     }
+
+
+    $scope.data = { 'volume': '5' };
+
+    var timeoutId = null;
+
+    $scope.$watch('data.volume', function () {
+
+
+        console.log('Has changed');
+
+        if (timeoutId !== null) {
+            console.log('Ignoring this movement');
+            return;
+        }
+
+        console.log('Not going to ignore this one');
+        timeoutId = $timeout(function () {
+
+            console.log('It changed recently!');
+
+            $timeout.cancel(timeoutId);
+            timeoutId = null;
+
+            // Now load data from server 
+        }, 1000);
+
+
+    });
+
 })
 
-.controller('ChatsCtrl', function($scope, Drugs, claraAPI, $timeout) {
+.controller('ChatsCtrl', function($scope, Drugs, claraAPI, $timeout, $state) {
     
     $scope.prescription = {};
 
     var flag = true;
+
+
 
 
   $scope.process = function () {
@@ -36,7 +68,7 @@ angular.module('starter.controllers', [])
               var today = new Date();
               for (var i = 0; i < $scope.prescription.length; i++) {
                   var dose = new Date($scope.prescription[i].start);
-                  if ($scope.prescription[i].start != null) {
+                              if ($scope.prescription[i].start != null) {
                       while (dose < today) {
                           var frequency = $scope.prescription[i].frequency * 1;
                           dose.setHours(dose.getHours() + 24 / frequency);
@@ -47,9 +79,18 @@ angular.module('starter.controllers', [])
 
                       var minutes = Math.round((((hours % 1) * 60) * 10) / 10);
 
+                      if (minutes == 60) {
+                          minutes = 0;
+                          hours = hours * 1 + 1;
+                      }
+
                       hours = Math.floor(hours);
 
                       $scope.prescription[i].hours = hours;
+
+                      if (minutes < 10) {
+                          minutes = '0' + minutes;
+                      }
                       $scope.prescription[i].minutes = minutes;
 
                   }
@@ -82,6 +123,7 @@ angular.module('starter.controllers', [])
                   if ($scope.prescription[i].start == null) {
                       $scope.prescription[i].nextDose = 'Not taken yet';
                   } else {
+                      
                       $scope.prescription[i].nextDose = 'Next dose in ' + $scope.prescription[i].hours + ' hours and ' + $scope.prescription[i].minutes + ' minutes';
                   }
               }
@@ -110,6 +152,11 @@ angular.module('starter.controllers', [])
       });
   });
 
+  $scope.goToDash = function () {
+      $state.go('tab.dash');
+
+  }
+
 
   $scope.process();
 
@@ -120,7 +167,7 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('ChatDetailCtrl', function ($scope, $stateParams, Drugs, claraAPI, $timeout) {
+.controller('ChatDetailCtrl', function ($scope, $stateParams, Drugs, claraAPI, $timeout, $state) {
     $scope.takenDose = true;
 
     $scope.drug = Drugs.get($stateParams.prescriptionId);
@@ -158,6 +205,7 @@ angular.module('starter.controllers', [])
         hours = Math.floor(hours);
 
         $scope.drug.hours = hours;
+
 
 
         $scope.drug.nextDose = 'In ' + hours + ' hours and ' + minutes + ' minutes';
@@ -209,6 +257,11 @@ angular.module('starter.controllers', [])
 
     $scope.processDetail();
 
+    $scope.goToDash = function () {
+        $state.go('tab.prescription');
+
+    }
+
     
 
 })
@@ -250,3 +303,9 @@ angular.module('starter.controllers', [])
 
     
 });
+
+
+Number.prototype.padLeft = function (base, chr) {
+    var len = (String(base || 10).length - String(this).length) + 1;
+    return len > 0 ? new Array(len).join(chr || '0') + this : this;
+}

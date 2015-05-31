@@ -79,13 +79,18 @@ body{
 .textDescription{
     color: white;
     font-size: 24px;
+    font-family: Roboto;
+}
+
+.textDescription2{
+    color: white;
+    font-size: 24px;
     font-family: Roboto-Thin;
-    
 }
 
 .imageBanner{
   
-    background-image: url('../img/bannerGlucose.jpg');
+    
     background-size: cover;
     background-repeat: none;
    
@@ -96,13 +101,22 @@ body{
     padding-left: 15px;
 }
 
+.pillsBanner{
+    background-image: url('../img/bannerPills.jpg');
+
+}
+
+.glucoseBanner{
+    background-image: url('../img/bannerGlucose.jpg');
+}
+
 
 .filler{
-    height: 50px;
+    height: 100px;
     background-color: #009688;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     color: white;
-    padding-top: 15px;
+    padding-top: 65px;
     padding-left: 15px;
 }
 

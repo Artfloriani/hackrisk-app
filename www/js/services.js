@@ -43,6 +43,11 @@ angular.module('starter.services', [])
 
     var icons = new Array('img/parecetamol.jpg', 'img/ibuprofen.jpg', 'img/b12.jpg', 'img/b12.jpg', 'img/ibuprofen.jpg', 'img/parecetamol.jpg');
 
+    var background = {
+        4: 'blabla',
+        9: 'coco'
+    }
+
     var drugs = JSON.parse(window.localStorage.getItem('dataPrescriptions'));
 
   return {
