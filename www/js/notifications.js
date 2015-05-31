@@ -60,7 +60,7 @@ function updateNotifications() {
 
                 console.log(dose);
 
-
+                
                 cordova.plugins.notification.local.schedule({
                     id: identifier,
                     title: prescriptions[i].nameDrug + ' ' + prescriptions[i].dose + prescriptions[i].doseUnit,

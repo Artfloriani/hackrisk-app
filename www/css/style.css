@@ -26,7 +26,7 @@ body{
     font-size: large;
     width: 100%;
     color: white;
-    height:150px;
+    height: 200px;
     border: none !important;
     margin-bottom: 5px;
 }
@@ -66,16 +66,13 @@ body{
     font-size: 52px;
     height:48px;
     font-family: "Roboto-Thin";
-    margin-bottom: 15px;
-
-    
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #logoIcon{
     opacity: 0.2;
     color: #FF4081;
-    wi
+   
 }
 
 #logoWrapper{
@@ -157,6 +154,46 @@ body{
     box-shadow: 0 3px 10px rgba(0,0,0,0.23),0 3px 10px rgba(0,0,0,0.16);
 
 }
+.space{
+    margin-right: 10px;
+}
+
+.frontPageHeader{
+    margin-bottom: 25px;
+
+}
+.frontSubHeader{
+    font-family: Roboto-Thin;
+    font-size: 24px;
+}
+
+.claraHealth{
+    font-family: Roboto;
+    padding: 5px;
+    margin-top: 20px;
+    font-size:16px;
+}
+
+.barButton2{
+    background-color: #FF4081;
+    margin-top: -15px;
+    margin-left: 80%;
+    margin-bottom: 10px;
+ 
+
+    width: 50px;
+    height: 50px;
+    
+    
+    padding: 5px;
+    padding-top: 13px !important;
+    padding-left: 10px !important;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.23),0 3px 10px rgba(0,0,0,0.16);
+
+}
+
+
 .pillBackground{
     background-image: url('../img/medicine.png') !important;
     background-size: 35px 35px;
