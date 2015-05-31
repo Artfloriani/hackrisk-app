@@ -9,15 +9,20 @@
 
 function updateNotifications() {
 
-    var prescriptions = window.localStorage.getItem("dataPrescriptions");
+    var prescriptions = JSON.parse(localStorage.getItem("dataPrescriptions"));
 
     var identifier = 100;
 
-    if(prescriptions != null){
+    var today = new Date();
+
+    if (prescriptions != null) {
+       
         for (var i = 0; i < prescriptions.length; i++) {
 
             var dose = new Date(prescriptions[i].start);
+            console.log(prescriptions[i]);
             if (prescriptions[i].start != null) {
+                
                 while (dose < today) {
                     var frequency = prescriptions[i].frequency * 1;
                     if (24.0 / frequency >= 1.0) {

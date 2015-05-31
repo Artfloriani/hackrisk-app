@@ -133,7 +133,6 @@ angular.module('starter.controllers', [])
                       $scope.prescription[i].nextDose = 'Next dose in ' + $scope.prescription[i].hours + ' hours and ' + $scope.prescription[i].minutes + ' minutes';
                   }
               }
-
               clearNotifications();
           }
 
