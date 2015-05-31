@@ -47,6 +47,8 @@ function updateNotifications() {
 
                 freq = freq * 60 * 1000;
 
+                console.log(prescriptions[i])
+
 
                 cordova.plugins.notification.local.schedule({
                     id: identifier,

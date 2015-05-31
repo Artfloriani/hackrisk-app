@@ -57,6 +57,8 @@ angular.module('starter.controllers', [])
       claraAPI.getPrescriptions().success(function (data) {
           window.localStorage.setItem('dataPrescriptions', JSON.stringify(data));
 
+          console.log(data);
+
           Drugs.update();
 
                 
@@ -71,11 +73,17 @@ angular.module('starter.controllers', [])
                      if ($scope.prescription[i].start != null) {
                       while (dose < today) {
                           var frequency = $scope.prescription[i].frequency * 1;
-                          dose.setHours(dose.getHours() + 24 / frequency);
+                          if (24.0 / frequency >= 1.0) {
+                              dose.setHours(dose.getHours() + 24.0 / frequency);
+                          }
+                          else {
+
+                              dose.setMinutes(dose.getMinutes() + (24.0 / frequency) * 60);
+                          }
                       }
 
                       var hours = (dose - today);
-                      hours = hours / 3600000;
+                      hours = hours / 3600000.0;
 
                       var minutes = Math.round((((hours % 1) * 60) * 10) / 10);
 
@@ -128,8 +136,7 @@ angular.module('starter.controllers', [])
                   }
               }
 
-
-              clearNotifications();
+              updateNotifications();
           }
 
       });
@@ -197,11 +204,19 @@ angular.module('starter.controllers', [])
         var dose = new Date($scope.drug.start);
         while (dose < today) {
             var frequency = $scope.drug.frequency * 1;
-            dose.setHours(dose.getHours() + 24 / frequency);
+            if (24.0 / frequency >= 1.0) {
+                dose.setHours(dose.getHours() + 24.0 / frequency);
+            }
+            else {
+             
+                dose.setMinutes(dose.getMinutes() + (24.0 / frequency)*60);
+            }
+            
         }
 
+
         var hours = (dose - today);
-        hours = hours / 3600000;
+        hours = hours / 3600000.0;
 
         var minutes = Math.round((((hours % 1) * 60) * 10) / 10);
 
