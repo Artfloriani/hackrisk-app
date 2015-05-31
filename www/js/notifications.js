@@ -54,7 +54,7 @@ function updateNotifications() {
                     minutes = '0' + minutes;
                 }
 
-                var freq = prescriptions[i].days / prescriptions[i].frequency;
+                var freq = 24.0 / prescriptions[i].frequency;
 
                 freq = freq * 60 * 1000;
 
