@@ -58,13 +58,15 @@ function updateNotifications() {
 
                 freq = freq * 60 * 1000;
 
+                console.log(dose);
+
 
                 cordova.plugins.notification.local.schedule({
                     id: identifier,
                     title: prescriptions[i].nameDrug + ' ' + prescriptions[i].dose + prescriptions[i].doseUnit,
                     text: 'Next dose in '+hours+' hours and '+ minutes +' minutes',
                     at: dose,
-                    every: freq,
+                    every: 60000,
                     led: "FF69B4",
                     sound: null
                 });
