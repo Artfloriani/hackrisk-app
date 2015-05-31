@@ -134,7 +134,7 @@ angular.module('starter.controllers', [])
                   }
               }
 
-              updateNotifications();
+              clearNotifications();
           }
 
       });
