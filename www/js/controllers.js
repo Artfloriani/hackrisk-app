@@ -57,8 +57,6 @@ angular.module('starter.controllers', [])
       claraAPI.getPrescriptions().success(function (data) {
           window.localStorage.setItem('dataPrescriptions', JSON.stringify(data));
 
-          console.log(data);
-
           Drugs.update();
 
                 

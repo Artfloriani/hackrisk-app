@@ -20,13 +20,19 @@ function updateNotifications() {
             if (prescriptions[i].start != null) {
                 while (dose < today) {
                     var frequency = prescriptions[i].frequency * 1;
-                    dose.setHours(dose.getHours() + 24 / frequency);
+                    if (24.0 / frequency >= 1.0) {
+                        dose.setHours(dose.getHours() + 24.0 / frequency);
+                    }
+                    else {
+
+                        dose.setMinutes(dose.getMinutes() + (24.0 / frequency) * 60);
+                    }
                 }
 
                 
 
                 var hours = (dose - today);
-                hours = hours / 3600000;
+                hours = hours / 3600000.0;
 
                 var minutes = Math.round((((hours % 1) * 60) * 10) / 10);
 
