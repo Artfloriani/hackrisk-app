@@ -1,0 +1,14 @@
+{
+    "de.appplant.cordova.plugin.local-notification": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Llama\\Desktop\\cordova-plugin-local-notifications-0.8.1"
+        }
+    },
+    "org.apache.cordova.device": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.device"
+        }
+    }
+}

@@ -4,6 +4,13 @@ body{
     font-family: Roboto !important;
 }
 
+#pulseLogo{
+    font-weight: lighter;
+    margin-top: -70px;
+    margin-left: 20px;
+
+}
+
 .materialAzul{
         border-color: #009688;
 		background-color: #009688;

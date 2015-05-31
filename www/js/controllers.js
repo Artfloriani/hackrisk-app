@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
               var today = new Date();
               for (var i = 0; i < $scope.prescription.length; i++) {
                   var dose = new Date($scope.prescription[i].start);
-                              if ($scope.prescription[i].start != null) {
+                     if ($scope.prescription[i].start != null) {
                       while (dose < today) {
                           var frequency = $scope.prescription[i].frequency * 1;
                           dose.setHours(dose.getHours() + 24 / frequency);
@@ -127,6 +127,9 @@ angular.module('starter.controllers', [])
                       $scope.prescription[i].nextDose = 'Next dose in ' + $scope.prescription[i].hours + ' hours and ' + $scope.prescription[i].minutes + ' minutes';
                   }
               }
+
+
+              clearNotifications();
           }
 
       });

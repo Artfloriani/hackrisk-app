@@ -91,4 +91,5 @@
     <splash src="res/screens/wp8/SplashScreenImage.jpg" width="480" height="800" />
   </platform>
   <preference name="android-minSdkVersion" value="9" />
+  <vs:plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.1" />
 </widget>
